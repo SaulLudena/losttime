@@ -1,3 +1,4 @@
+import Link from "next/link";
 import DecryptedText from "../utils/decryptedText";
 export default function Presentation() {
   return (
@@ -21,6 +22,14 @@ export default function Presentation() {
           <span className="flex items-center gap-2">
             Navigate through options in the menu
           </span>
+          <div className="flex">
+            <Link
+              href="/go"
+              className="bg-orange-600 text-black py-5 px-4 mt-2 [clip-path:polygon(0_0,calc(100%_-_10px)_0,100%_10px,100%_100%,0_100%)]"
+            >
+              Activate node
+            </Link>
+          </div>
         </div>
       </div>
     </div>

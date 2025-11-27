@@ -1,16 +1,73 @@
 import React from "react";
 import Link from "next/link";
+
 export default function Seekengine() {
+  const [datatest, setDatatest] = React.useState({
+    text1: "Deftones were with us",
+    text2: "> [ 55°36’??.2”N - 37°39’??.6”W ]<",
+    text3:
+      "> We had nowhere to go, so we just stayed looking up the stars, i miss everything what we pass thorught.",
+    text4: "> We were ready to be scarred",
+    audio: false,
+  });
   return (
-    <div className=" grid h-full   items-center max-w-[1600px] m-auto w-[80%] ">
-      <div className="grid gap-7">
-        <div className="grid gap-2">
-          <span className="flex items-center gap-2 text-5xl">
-            <div className="w-3 h-3 bg-black"></div> Time to look up
-          </span>
-          <span className="flex items-center gap-2">
-            paste you lostcode in the field.
-          </span>
+    <div className="w-full h-full grid items-center">
+      <div className="grid  items-center max-w-[1600px] mx-auto w-[90%]  gap-5">
+        <div className="grid gap-7 p-4 md:p-0">
+          <div className="grid gap-2">
+            <span className="flex items-center gap-2 text-5xl">
+              <div className="w-3 h-3 bg-black"></div> Time to look up
+            </span>
+            <span className="flex items-center gap-2">
+              paste you lostcode in the field.
+            </span>
+            <div className="flex ">
+              <input
+                type="text"
+                className="outline-none border py-5 px-4 border-r-0 flex-grow max-w-sm"
+                placeholder="LT-2454"
+              />
+              <div className="flex">
+                <Link
+                  href="/go"
+                  className="bg-black text-white py-5 px-4 [clip-path:polygon(0_0,calc(100%_-_10px)_0,100%_10px,100%_100%,0_100%)]"
+                >
+                  Find out
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="">
+          <div className="  grid grid-cols-12">
+            <div className=" col-span-4">
+              <img
+                src="/bg.png"
+                alt="no hubo"
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <div className=" col-span-5 p-7  bg-[#CBCBCB]">
+              {datatest && (
+                <div className="p-4 flex flex-col justify-between h-full ">
+                  <p className="text-3xl font-bold">{datatest.text1}</p>
+                  <div className="grid gap-3">
+                    <p>{datatest.text4}</p>
+                    <p className="leading-4">{datatest.text3}</p>
+                    <p>{datatest.text2}</p>
+                  </div>
+                  <div>
+                    <div className="flex">
+                      {" "}
+                      <div className="rounded-full p-7 bg-black"></div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="border col-span-3">bloque color 3</div>
+          </div>
         </div>
       </div>
     </div>
