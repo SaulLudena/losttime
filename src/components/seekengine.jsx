@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-
+import LostTimeCard from "./losttimecard";
 export default function Seekengine() {
   const [datatest, setDatatest] = React.useState({
     text1: "Deftones were with us",
@@ -39,36 +39,7 @@ export default function Seekengine() {
           </div>
         </div>
 
-        <div className="">
-          <div className="  grid grid-cols-12">
-            <div className=" col-span-4">
-              <img
-                src="/bg.png"
-                alt="no hubo"
-                className="object-cover w-full h-full"
-              />
-            </div>
-            <div className=" col-span-5 p-7  bg-[#CBCBCB]">
-              {datatest && (
-                <div className="p-4 flex flex-col justify-between h-full ">
-                  <p className="text-3xl font-bold">{datatest.text1}</p>
-                  <div className="grid gap-3">
-                    <p>{datatest.text4}</p>
-                    <p className="leading-4">{datatest.text3}</p>
-                    <p>{datatest.text2}</p>
-                  </div>
-                  <div>
-                    <div className="flex">
-                      {" "}
-                      <div className="rounded-full p-7 bg-black"></div>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-            <div className="border col-span-3">bloque color 3</div>
-          </div>
-        </div>
+        <LostTimeCard />
       </div>
     </div>
   );

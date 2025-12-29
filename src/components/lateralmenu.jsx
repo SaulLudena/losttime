@@ -1,22 +1,27 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import LostTimeLogo from "./losttimelogo";
 import DecryptedText from "@/components/DecryptedText";
 import Link from "next/link";
-
-// Se asume que setShowButton y el estado 'menu' están definidos fuera o dentro del componente
-// He añadido el estado simple necesario para que onComplete funcione sin errores.
 export default function LateralMenu() {
   const [showButton, setShowButton] = useState(false);
+  const audioRef = useRef(null);
+
+  // 🔥 SOLO se ejecuta en el cliente
+  useEffect(() => {
+    audioRef.current = new Audio("/audio/audiolostime.mp3");
+    audioRef.current.volume = 0.4;
+  }, []);
+
+  const handleClickSound = () => {
+    if (!audioRef.current) return;
+
+    audioRef.current.currentTime = 0;
+    audioRef.current.play();
+  };
 
   return (
-    // Contenedor principal: Flexbox vertical (col) que ocupa toda la altura (h-full)
-    // y distribuye el espacio (justify-between)
     <div className="h-full px-10 w-full flex flex-col justify-between">
-      {/* 1. Bloque Superior: Logo y Menú */}
-      {/* Este bloque ocupa el espacio necesario para su contenido */}
-      <div className="flex flex-col gap-10 w-full pt-8">
-        {" "}
-        {/* Añadido pt-8 para un poco de padding superior */}
+      <div className="flex flex-col gap-20 w-full pt-8">
         <LostTimeLogo />
         <ul className="w-full">
           {menu.map((item, index) => (
@@ -24,6 +29,7 @@ export default function LateralMenu() {
               <Link
                 href={item.to}
                 className="hover:bg-orange-600 cursor-pointer items-center py-1 px-3 hover:black group flex gap-1"
+                onClick={handleClickSound}
               >
                 <span className="hidden group-hover:block">{">"}</span>
 
@@ -45,14 +51,10 @@ export default function LateralMenu() {
         </ul>
       </div>
 
-      {/* 2. Bloque Inferior: Texto Descifrado y Botón */}
-      {/* Este bloque se empuja al final por justify-between en el contenedor padre */}
       <div className="w-full text-lg flex flex-col pb-24">
         <div className="font-mono leading-5">
           <div className="relative">
-            {/* 1. Texto fantasma que define la altura final */}
             <div className="invisible whitespace-pre-line pointer-events-none">
-              {/* Nota: Es crucial que el texto fantasma coincida exactamente con el texto animado */}
               {`> Ready? Go.
 
 Humans have a need to miss the ones who were special to them. That’s why we want to save our beautiful moments together.

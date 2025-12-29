@@ -79,7 +79,7 @@ export default function rightpanel() {
         </div>
         <div className="flex">
           <Link
-            href="/lostpreview"
+            href="/seek"
             className="bg-zinc-900 text-[#FF3C00] py-5 px-4 mt-2 [clip-path:polygon(0_0,calc(100%_-_10px)_0,100%_10px,100%_100%,0_100%)] w-90"
           >
             Save this for posterity.
