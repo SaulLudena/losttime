@@ -1,6 +1,6 @@
 import LateralMenu from "../src/components/lateralmenu";
-import SeekEngine from "../src/components/seekengine";
-export default function Seek() {
+import Whoamihero from "../src/components/whoiamhero";
+export default function Whoami() {
   return (
     <div className=" h-screen w-full ">
       <div className="w-full h-full grid grid-cols-12">
@@ -8,7 +8,7 @@ export default function Seek() {
           <LateralMenu />
         </div>
         <div className="col-span-9 max-xl:col-span-12">
-          <SeekEngine />
+          <Whoamihero />
         </div>
       </div>
     </div>

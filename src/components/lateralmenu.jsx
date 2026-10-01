@@ -20,20 +20,21 @@ export default function LateralMenu() {
   };
 
   return (
-    <div className="h-full px-10 w-full flex flex-col justify-between">
-      <div className="flex flex-col gap-20 w-full pt-8">
+    <div className="h-full px-10 w-full flex flex-col justify-between ">
+      <div className="flex flex-col gap-20 w-full pt-8 ">
         <LostTimeLogo />
-        <ul className="w-full">
+        <ul className="w-full flex flex-col max-xl:fixed max-xl:bottom-0 max-xl:left-0 max-xl:z-9999 max-xl:grid max-xl:grid-cols-3 max-xl:bg-[#dcdcdc]">
           {menu.map((item, index) => (
-            <li key={index}>
+            <li key={index} className="w-full ">
               <Link
                 href={item.to}
-                className="hover:bg-orange-600 cursor-pointer items-center py-1 px-3 hover:black group flex gap-1"
+                className="hover:bg-orange-600 cursor-pointer items-center py-1 px-3  hover:text-black group flex gap-1 max-xl:justify-center max-xl:py-10 max-xl:h-full"
                 onClick={handleClickSound}
               >
-                <span className="hidden group-hover:block">{">"}</span>
+                {/* El símbolo ">" solo se ve en hover en desktop; en móvil lo ocultamos para ganar espacio */}
+                <span className="hidden xl:group-hover:block">{">"}</span>
 
-                <div className="text-xl tracking-[1px]">
+                <div className="text-xl tracking-[1px] max-xl:text-[10px] max-xl:leading-tight max-xl:text-center">
                   <DecryptedText
                     text={item.label}
                     speed={45}
@@ -51,7 +52,7 @@ export default function LateralMenu() {
         </ul>
       </div>
 
-      <div className="w-full text-lg flex flex-col pb-24">
+      <div className="w-full text-lg flex flex-col pb-24 max-2xl:pb-16 max-xl:hidden ">
         <div className="font-mono leading-5">
           <div className="relative">
             <div className="invisible whitespace-pre-line pointer-events-none">
@@ -59,22 +60,22 @@ export default function LateralMenu() {
 
 Humans have a need to miss the ones who were special to them. That’s why we want to save our beautiful moments together.
 -------------
-thai 2b 2025b.
-      thai 2b 2025b.
+developed by.
+      donoboy.
 0035 l-Audio (Complete the form to.)
 -------------
 `}
             </div>
 
             {/* 2. Texto animado superpuesto */}
-            <div className="absolute inset-0 whitespace-pre-line">
+            <div className="absolute inset-0 whitespace-pre-line ">
               <DecryptedText
                 text={`> Ready? Go.
 
 Humans have a need to miss the ones who were special to them. That’s why we want to save our beautiful moments together.
 -------------
-thai 2b 2025b.
-      thai 2b 2025b.
+developed by.
+      donoboy.
 0035 l-Audio (Complete the form to.)
 -------------
 `}
@@ -88,17 +89,6 @@ thai 2b 2025b.
                 onComplete={() => setShowButton(true)} // Activa el estado para el botón
               />
             </div>
-          </div>
-
-          {/* Botón/Caja de diálogo, ahora condicional basado en la animación (si lo necesitas) */}
-          <div className="mt-2">
-            {/* Se muestra el botón si el texto ha terminado de descifrarse */}
-            {showButton && (
-              <div className="bg-zinc-900 text-zinc-50 py-5 px-4 [clip-path:polygon(0_0,calc(100%_-_10px)_0,100%_10px,100%_100%,0_100%)]">
-                Did you understand?
-              </div>
-            )}
-            {/* Si no quieres que sea condicional, simplemente quita el 'showButton &&' */}
           </div>
         </div>
       </div>
@@ -118,6 +108,6 @@ const menu = [
   },
   {
     label: "GITHUB",
-    to: "someurl",
+    to: "https://github.com/SaulLudena/losttime",
   },
 ];

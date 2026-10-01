@@ -12,12 +12,33 @@ export default function decryptedblock() {
         parentClassName="font-mono" // Contenedor principal
         encryptedClassName="text-zinc-600" // Texto aún cifrado
         animateOn="view" // Activa animación al pasar el mouse
-        className=""
+        className="max-xl:text-sm"
       />
-      <div className="bg-zinc-900 w-2 h-2 rounded-full absolute -top-5 -left-12"></div>
-      <div className="bg-zinc-900 w-2 h-2 rounded-full absolute -bottom-5 -left-12"></div>
-      <div className="bg-zinc-900 w-2 h-2 rounded-full absolute -top-5 -right-7"></div>
-      <div className="bg-zinc-900 w-2 h-2 rounded-full absolute -bottom-5 -right-7"></div>
+      <>
+        <div
+          className="bg-zinc-700 absolute rounded-full 
+    w-2 h-2 -top-5 -left-12 
+   max-xl:-top-3 max-xl:-left-6"
+        ></div>
+
+        <div
+          className="bg-zinc-700 absolute rounded-full 
+    w-2 h-2 -bottom-5 -left-12 
+     max-xl:-bottom-3 max-xl:-left-6"
+        ></div>
+
+        <div
+          className="bg-zinc-700 absolute rounded-full 
+    w-2 h-2 -top-5 -right-7 
+    max-xl:-top-3 max-xl:-right-4"
+        ></div>
+
+        <div
+          className="bg-zinc-700 absolute rounded-full 
+    w-2 h-2 -bottom-5 -right-7 
+    max-xl:-bottom-3 max-xl:-right-4"
+        ></div>
+      </>
     </div>
   );
 }
