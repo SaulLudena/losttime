@@ -18,7 +18,7 @@ export default function Seekengine() {
       .eq("id", id)
       .single();
     if (error) {
-      setError("Your lostcode is wrong or i deleted it... ");
+      setError("Sorry, your lostcode is wrong or i deleted it ... ");
     } else {
       setMemory(data);
       console.log(data);
